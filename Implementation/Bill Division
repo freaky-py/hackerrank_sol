@@ -1,0 +1,33 @@
+#find the exact question here:
+#https://www.hackerrank.com/challenges/bon-appetit/problem
+#or
+#https://hackerrank-challenge-pdfs.s3.amazonaws.com/24060-bon-appetit-English?AWSAccessKeyId=AKIAR6O7GJNX5DNFO3PV&Expires=1612214038&Signature=GO7e%2BgC%2BkfCDN0%2FC%2FspmJ%2FNUcrE%3D&response-content-disposition=inline%3B%20filename%3Dbon-appetit-English.pdf&response-content-type=application%2Fpdf
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the bonAppetit function below.
+def bonAppetit(bill, k, b):
+    tot=0
+    for i in bill:#totalling the amount to be paid
+        tot=tot+i
+    if (tot/2)-(bill[k]/2)==b:#comparing whether Brian has taken into accound Anna's exclusion of food by dividing the total in two for getting anna's share and then subtracting the index value half from the amount.
+        print("Bon Appetit")
+    else:
+        print(round(bill[k]/2))#directly printing the half value since only the difference has to be paid by Brian
+if __name__ == '__main__':
+    nk = input().rstrip().split()
+
+    n = int(nk[0])
+
+    k = int(nk[1])
+
+    bill = list(map(int, input().rstrip().split()))
+
+    b = int(input().strip())
+
+    bonAppetit(bill, k, b)
